@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homnivas | Homes Reimagined</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#070F21',
+                        brandCard: '#0D1936',
+                        brandGold: '#F3C43B',
+                        brandTextMuted: '#94A3B8'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #070F21; font-family: system-ui, -apple-system, sans-serif; }
+    </style>
+</head>
+<body class="text-white selection:bg-brandGold selection:text-brandDark">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-brandDark/80 backdrop-blur-md border-b border-white/5 py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded bg-brandGold flex items-center justify-center text-brandDark font-bold text-xl">H</div>
+            <span class="text-xl font-semibold tracking-wider">Homnivas</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-sm tracking-wide text-brandTextMuted">
+            <a href="#story" class="hover:text-brandGold transition">Story</a>
+            <a href="#process" class="hover:text-brandGold transition">Process</a>
+            <a href="#collections" class="hover:text-brandGold transition">Collections</a>
+            <a href="#philosophy" class="hover:text-brandGold transition">Philosophy</a>
+            <a href="#partner" class="hover:text-brandGold transition">Partner</a>
+            <a href="#about" class="hover:text-brandGold transition">About</a>
+        </div>
+        <a href="#partner" class="bg-brandGold text-brandDark font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-yellow-400 transition shadow-lg shadow-brandGold/10">Inquire</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative grid md:grid-cols-2 min-h-[85vh] items-stretch overflow-hidden">
+        <div class="relative bg-cover bg-center min-h-[350px] md:min-h-auto" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200');">
+            <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-brandDark/40"></div>
+        </div>
+        <div class="relative flex flex-col justify-center px-6 md:px-16 py-12 md:py-24 bg-brandDark">
+            <div class="max-w-xl space-y-6">
+                <span class="text-brandGold uppercase tracking-widest text-xs font-semibold px-3 py-1 bg-brandGold/10 rounded-full border border-brandGold/20">YOUR SPACE. OUR CARE.</span>
+                <h1 class="text-4xl md:text-6xl font-light tracking-tight text-white leading-tight">Homnivas <br><span class="font-bold text-brandGold">Homes Reimagined</span></h1>
+                <p class="text-lg text-brandTextMuted leading-relaxed">"Your Space. Our Care. Transforming old structures into premium ready-to-move havens."</p>
+                <div class="pt-4">
+                    <a href="#collections" class="inline-flex items-center gap-2 border border-brandGold text-brandGold hover:bg-brandGold hover:text-brandDark px-6 py-3 rounded-full font-medium transition duration-300">Explore Collections <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Value Badges -->
+    <section class="border-y border-white/5 bg-brandCard/30 py-8 px-6 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center max-w-7xl mx-auto my-12 rounded-2xl">
+        <div class="space-y-1">
+            <div class="text-brandGold text-xl"><i class="fa-solid fa-gem"></i></div>
+            <h4 class="font-medium text-white">Bespoke</h4>
+            <p class="text-xs text-brandTextMuted">Crafted Just For You</p>
+        </div>
+        <div class="space-y-1">
+            <div class="text-brandGold text-xl"><i class="fa-solid fa-crown"></i></div>
+            <h4 class="font-medium text-white">Elite</h4>
+            <p class="text-xs text-brandTextMuted">Premium Standards Only</p>
+        </div>
+        <div class="space-y-1">
+            <div class="text-brandGold text-xl"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h4 class="font-medium text-white">Curated</h4>
+            <p class="text-xs text-brandTextMuted">Artisan Picked Elements</p>
+        </div>
+        <div class="space-y-1">
+            <div class="text-brandGold text-xl"><i class="fa-solid fa-certificate"></i></div>
+            <h4 class="font-medium text-white">Flawless</h4>
+            <p class="text-xs text-brandTextMuted">Exceptional Execution</p>
+        </div>
+    </section>
+
+    <!-- The Transformation Story -->
+    <section id="story" class="py-20 px-6 max-w-7xl mx-auto text-center space-y-12">
+        <div class="space-y-3">
+            <h2 class="text-3xl md:text-4xl font-semibold">The Transformation Story</h2>
+            <div class="w-16 h-1 bg-brandGold mx-auto rounded-full"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-brandCard p-8 rounded-2xl border border-white/5 space-y-4 hover:border-brandGold/30 transition">
+                <div class="w-12 h-12 rounded-full bg-brandGold/10 flex items-center justify-center text-brandGold mx-auto text-lg"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3 class="text-xl font-semibold">Structural Updates</h3>
+                <p class="text-sm text-brandTextMuted leading-relaxed">Reinforcing foundations and layouts to withstand modern needs perfectly.</p>
+            </div>
+            <div class="bg-brandCard p-8 rounded-2xl border border-white/5 space-y-4 hover:border-brandGold/30 transition">
+                <div class="w-12 h-12 rounded-full bg-brandGold/10 flex items-center justify-center text-brandGold mx-auto text-lg"><i class="fa-solid fa-couch"></i></div>
+                <h3 class="text-xl font-semibold">Aesthetic Rework</h3>
+                <p class="text-sm text-brandTextMuted leading-relaxed">Elevating interiors with high-tier finishes, premium hardware, and bespoke fixtures.</p>
+            </div>
+            <div class="bg-brandCard p-8 rounded-2xl border border-white/5 space-y-4 hover:border-brandGold/30 transition">
+                <div class="w-12 h-12 rounded-full bg-brandGold/10 flex items-center justify-center text-brandGold mx-auto text-lg"><i class="fa-solid fa-house-chimney-medical"></i></div>
+                <h3 class="text-xl font-semibold">Complete Overhaul</h3>
+                <p class="text-sm text-brandTextMuted leading-relaxed">Turning unpolished environments into fully completed, ready-to-live luxurious realities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Collections -->
+    <section id="collections" class="py-20 bg-brandCard/20 px-6">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl md:text-4xl font-semibold">Signature Collections</h2>
+                <div class="w-16 h-1 bg-brandGold mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-brandCard rounded-3xl overflow-hidden border border-white/5 group hover:border-brandGold/20 transition flex flex-col justify-between">
+                    <div class="h-64 overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800');"></div>
+                    <div class="p-8 space-y-6">
+                        <h3 class="text-2xl font-bold">Urban Signature</h3>
+                        <p class="text-sm text-brandTextMuted">Sophisticated city dwellings blending high functionality with timeless modern minimalism.</p>
+                        <button onclick="document.getElementById('partner').scrollIntoView({behavior: 'smooth'})" class="w-full py-3 bg-brandGold text-brandDark font-semibold rounded-xl hover:bg-yellow-400 transition">Inquire Collection</button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-brandCard rounded-3xl overflow-hidden border border-white/5 group hover:border-brandGold/20 transition flex flex-col justify-between">
+                    <div class="h-64 overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800');"></div>
+                    <div class="p-8 space-y-6">
+                        <h3 class="text-2xl font-bold">Classic Estate</h3>
+                        <p class="text-sm text-brandTextMuted">Bespoke historical properties completely restored into grand, ultra-premium ready-to-move estates.</p>
+                        <button onclick="document.getElementById('partner').scrollIntoView({behavior: 'smooth'})" class="w-full py-3 bg-brandGold text-brandDark font-semibold rounded-xl hover:bg-yellow-400 transition">Inquire Collection</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner With Homnivas & Form -->
+    <section id="partner" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 bg-brandCard p-8 md:p-16 rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
+            <div class="space-y-8">
+                <div class="space-y-3">
+                    <h2 class="text-3xl md:text-4xl font-semibold">Partner With Homnivas</h2>
+                    <p class="text-brandTextMuted">Let’s transform your property or find your perfect tailored ready-to-move sanctuary.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-start">
+                        <div class="text-brandGold text-lg mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                        <div>
+                            <h4 class="font-medium text-white">Expert Evaluation</h4>
+                            <p class="text-sm text-brandTextMuted">Comprehensive assessments of property potential and architecture.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="text-brandGold text-lg mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                        <div>
+                            <h4 class="font-medium text-white">Seamless Delivery</h4>
+                            <p class="text-sm text-brandTextMuted">Handling everything from procurement to finishing keys with zero stress for you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Safe & Interactive Contact Area -->
+            <div class="bg-brandDark/50 p-6 md:p-8 rounded-2xl border border-white/5 space-y-6 flex flex-col justify-center">
+                <h3 class="text-xl font-semibold text-center">Submit Your Inquiry</h3>
+                <!-- Simple client-side direct mailto or messaging interface -->
+                <form onsubmit="alert('Thank you for your interest! We will contact you shortly.'); return false;" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase text-brandTextMuted mb-2 tracking-wider">Your Name</label>
+                        <input type="text" required class="w-full bg-brandDark border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandGold text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-brandTextMuted mb-2 tracking-wider">Contact Info</label>
+                        <input type="text" required placeholder="Phone or Email" class="w-full bg-brandDark border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandGold text-sm">
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-brandGold text-brandDark font-bold rounded-xl hover:bg-yellow-400 transition tracking-wide text-sm">Connect With Us</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about" class="bg-brandDark border-t border-white/5 py-16 px-6 md:px-12 text-center md:text-left">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-12">
+            <div class="space-y-4">
+                <div class="flex items-center justify-center md:justify-start gap-2">
+                    <div class="w-8 h-8 rounded bg-brandGold flex items-center justify-center text-brandDark font-bold text-xl">H</div>
+                    <span class="text-xl font-semibold tracking-wider">Homnivas</span>
+                </div>
+                <p class="text-sm text-brandTextMuted max-w-sm">"We breathe life into tired bricks." Turning spaces into premium legacy residences globally.</p>
+            </div>
+            <div class="space-y-4">
+                <h4 class="text-brandGold font-semibold tracking-wider uppercase text-xs">Our Mission</h4>
+                <p class="text-sm text-brandTextMuted">Providing absolute excellence through design, construction integrity, and effortless turnkey experiences.</p>
+            </div>
+            <div class="space-y-4">
+                <h4 class="text-brandGold font-semibold tracking-wider uppercase text-xs">Reach Out</h4>
+                <p class="text-sm text-brandTextMuted"><i class="fa-solid fa-envelope mr-2"></i> contact@homnivas.space</p>
+                <p class="text-sm text-brandTextMuted"><i class="fa-solid fa-phone mr-2"></i> +1 (800) 555-HOME</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brandTextMuted">
+            <p>&copy; 2026 Homnivas. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-brandGold">Privacy Policy</a>
+                <a href="#" class="hover:text-brandGold">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
