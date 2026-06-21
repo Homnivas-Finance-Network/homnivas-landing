@@ -6,6 +6,9 @@
     <title>Homnivas - Your Space. Our Care.</title>
     <meta name="description" content="Your Space. Our Care. Transforming old structures into premium ready-to-move havens." />
     
+    <!-- Custom Favicon (SVG Data URI) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23F5A524%22/><text x=%2250%22 y=%2272%22 font-family=%22Arial%22 font-size=%2265%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22%230B1120%22>H</text></svg>">
+    
     <!-- Google Fonts: Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
@@ -56,6 +59,10 @@
         .glass-card { background: rgba(17, 24, 39, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
         .glass-card:hover { border-color: rgba(245, 165, 36, 0.3); box-shadow: 0 10px 30px -10px rgba(245, 165, 36, 0.1); }
         .gradient-text { background: linear-gradient(to right, #ffffff, #94A3B8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Modal Animation Styles */
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: opacity 300ms, transform 300ms; }
     </style>
 </head>
 <body class="font-body antialiased flex flex-col min-h-screen selection:bg-primary selection:text-black overflow-x-hidden w-full">
@@ -351,7 +358,6 @@
 
         <!-- The Design Philosophy -->
         <section id="philosophy" class="py-16 md:py-24 bg-background relative overflow-hidden">
-            <!-- Ensure glow effect doesn't cause horizontal overflow -->
             <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
             
             <div class="container mx-auto px-4 relative z-10 max-w-5xl">
@@ -532,7 +538,6 @@
                     </div>
 
                     <div class="glass-card p-8 md:p-12 rounded-[2rem] text-center relative overflow-hidden border border-border/50 shadow-2xl">
-                        <!-- Ensure glow effect doesn't cause horizontal overflow -->
                         <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
                         
                         <div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10">
@@ -631,17 +636,82 @@
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-4 md:gap-6 order-2 md:order-3 text-xs">
-                    <a href="#" class="text-muted-foreground hover:text-primary hover:underline transition-all">Privacy Policy</a>
-                    <a href="#" class="text-muted-foreground hover:text-primary hover:underline transition-all">Terms & Conditions</a>
+                    <!-- Updated to open Modals -->
+                    <button onclick="openModal('privacyModal')" class="text-muted-foreground hover:text-primary hover:underline transition-all">Privacy Policy</button>
+                    <button onclick="openModal('termsModal')" class="text-muted-foreground hover:text-primary hover:underline transition-all">Terms & Conditions</button>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a target="_blank" href="https://wa.me/919836196650" class="fixed bottom-6 right-6 z-50 bg-primary text-black p-3.5 md:p-4 rounded-full shadow-[0_0_20px_rgba(245,165,36,0.3)] hover:scale-110 transition-transform">
+    <a target="_blank" href="https://wa.me/919836196650" class="fixed bottom-6 right-6 z-40 bg-primary text-black p-3.5 md:p-4 rounded-full shadow-[0_0_20px_rgba(245,165,36,0.3)] hover:scale-110 transition-transform">
         <i data-lucide="message-circle" class="w-6 h-6 md:w-8 md:h-8 fill-current"></i>
     </a>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal('privacyModal')"></div>
+        <!-- Modal Content -->
+        <div class="relative bg-card border border-border rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl transform scale-95 transition-transform duration-300" id="privacyModalContent">
+            <!-- Header -->
+            <div class="p-5 md:p-6 border-b border-border/50 flex justify-between items-center bg-card rounded-t-2xl z-10">
+                <h3 class="text-xl md:text-2xl font-headline font-bold text-foreground">Privacy Policy</h3>
+                <button onclick="closeModal('privacyModal')" class="text-muted-foreground hover:text-primary transition-colors bg-background border border-border rounded-lg p-1">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 overflow-y-auto text-sm text-muted-foreground space-y-5 flex-1 custom-scrollbar">
+                <p class="font-semibold text-foreground">Last Updated: June 2026</p>
+                <p>At Homnivas, we are committed to protecting your privacy and ensuring your personal information is handled securely and responsibly. This Privacy Policy outlines how we collect, use, and safeguard your data.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">1. Information We Collect</h4>
+                <p>We may collect personal information that you provide directly to us, such as your name, email address, phone number, and property details when you fill out an inquiry form, contact us via email, or message us on WhatsApp.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">2. How We Use Your Information</h4>
+                <p>We use the information we collect to communicate with you regarding your inquiries, provide information about our renovation services, process partnership requests, and improve our website experience.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">3. Information Sharing</h4>
+                <p>Homnivas does not sell, trade, or rent your personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information with our business partners.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">4. Data Security</h4>
+                <p>We adopt appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information stored on our systems.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">5. Contacting Us</h4>
+                <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:contact@homnivas.space" class="text-primary hover:underline">contact@homnivas.space</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal('termsModal')"></div>
+        <!-- Modal Content -->
+        <div class="relative bg-card border border-border rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl transform scale-95 transition-transform duration-300" id="termsModalContent">
+            <!-- Header -->
+            <div class="p-5 md:p-6 border-b border-border/50 flex justify-between items-center bg-card rounded-t-2xl z-10">
+                <h3 class="text-xl md:text-2xl font-headline font-bold text-foreground">Terms & Conditions</h3>
+                <button onclick="closeModal('termsModal')" class="text-muted-foreground hover:text-primary transition-colors bg-background border border-border rounded-lg p-1">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 overflow-y-auto text-sm text-muted-foreground space-y-5 flex-1 custom-scrollbar">
+                <p class="font-semibold text-foreground">Last Updated: June 2026</p>
+                <p>Welcome to Homnivas. By accessing our website and utilizing our services, you agree to comply with and be bound by the following terms and conditions.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">1. Acceptance of Terms</h4>
+                <p>By accessing this website, you agree to be bound by these website Terms and Conditions of Use, all applicable laws, and regulations, and agree that you are responsible for compliance with any applicable local laws.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">2. Services Offered</h4>
+                <p>Homnivas provides real estate transformation, interior design, and property acquisition services. All service descriptions on the website are for informational purposes and subject to contract terms upon official engagement.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">3. Intellectual Property Rights</h4>
+                <p>All content, designs, graphics, and architectural concepts displayed on this website are the intellectual property of Homnivas. You may not reproduce, distribute, or use these materials without our explicit written consent.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">4. Limitations of Liability</h4>
+                <p>In no event shall Homnivas or its suppliers be liable for any damages arising out of the use or inability to use the materials on Homnivas's website, even if an authorized representative has been notified orally or in writing of the possibility of such damage.</p>
+                <h4 class="font-bold text-foreground text-base pt-2">5. Revisions and Errata</h4>
+                <p>The materials appearing on the website could include technical, typographical, or photographic errors. Homnivas does not warrant that any of the materials on its website are accurate, complete, or current.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- UI Interaction Scripts -->
     <script>
@@ -656,18 +726,61 @@
 
         function toggleMenu() {
             const isHidden = menu.classList.toggle('hidden');
-            // Dynamically change burger icon to a close icon
             icon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
             lucide.createIcons();
         }
 
         btn.addEventListener('click', toggleMenu);
-        // Automatically collapse full-screen menu panel on mobile link selection
         links.forEach(link => link.addEventListener('click', () => {
             menu.classList.add('hidden');
             icon.setAttribute('data-lucide', 'menu');
             lucide.createIcons();
         }));
+
+        // Modal Logic
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            const content = document.getElementById(id + 'Content');
+            
+            modal.classList.remove('hidden');
+            // Disable background scrolling
+            document.body.style.overflow = 'hidden';
+            
+            // Trigger animation next frame
+            requestAnimationFrame(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            });
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            const content = document.getElementById(id + 'Content');
+            
+            // Animate out
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            
+            // Hide after animation finishes
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Re-enable scrolling
+            }, 300);
+        }
+
+        // Close Modals on Escape Key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                if (!document.getElementById('privacyModal').classList.contains('hidden')) {
+                    closeModal('privacyModal');
+                }
+                if (!document.getElementById('termsModal').classList.contains('hidden')) {
+                    closeModal('termsModal');
+                }
+            }
+        });
     </script>
 </body>
 </html>
