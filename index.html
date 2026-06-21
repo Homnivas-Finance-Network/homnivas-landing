@@ -1,217 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homnivas | Homes Reimagined</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Homnivas - Your Space. Our Care.</title>
+    <meta name="description" content="Your Space. Our Care. Transforming old structures into premium ready-to-move havens." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        headline: ['Poppins', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    },
                     colors: {
-                        brandDark: '#070F21',
-                        brandCard: '#0D1936',
-                        brandGold: '#F3C43B',
-                        brandTextMuted: '#94A3B8'
+                        background: '#0a0a0a',
+                        foreground: '#ffffff',
+                        primary: {
+                            DEFAULT: '#f59e0b', // Luxury Gold
+                            foreground: '#000000',
+                        },
+                        muted: {
+                            DEFAULT: '#262626',
+                            foreground: '#a3a3a3',
+                        },
+                        card: {
+                            DEFAULT: '#171717',
+                            foreground: '#ffffff',
+                        },
+                        border: '#262626'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 }
             }
         }
     </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        body { background-color: #070F21; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: #0a0a0a; color: #ffffff; }
+        .glass-nav { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-card { background: rgba(23, 23, 23, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
+        .glass-card:hover { border-color: rgba(245, 158, 11, 0.3); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.1); }
+        .gradient-text { background: linear-gradient(to right, #ffffff, #a3a3a3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="text-white selection:bg-brandGold selection:text-brandDark">
+<body class="font-body antialiased flex flex-col min-h-screen">
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-brandDark/80 backdrop-blur-md border-b border-white/5 py-4 px-6 md:px-12 flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded bg-brandGold flex items-center justify-center text-brandDark font-bold text-xl">H</div>
-            <span class="text-xl font-semibold tracking-wider">Homnivas</span>
-        </div>
-        <div class="hidden md:flex items-center gap-8 text-sm tracking-wide text-brandTextMuted">
-            <a href="#story" class="hover:text-brandGold transition">Story</a>
-            <a href="#process" class="hover:text-brandGold transition">Process</a>
-            <a href="#collections" class="hover:text-brandGold transition">Collections</a>
-            <a href="#philosophy" class="hover:text-brandGold transition">Philosophy</a>
-            <a href="#partner" class="hover:text-brandGold transition">Partner</a>
-            <a href="#about" class="hover:text-brandGold transition">About</a>
-        </div>
-        <a href="#partner" class="bg-brandGold text-brandDark font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-yellow-400 transition shadow-lg shadow-brandGold/10">Inquire</a>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative grid md:grid-cols-2 min-h-[85vh] items-stretch overflow-hidden">
-        <div class="relative bg-cover bg-center min-h-[350px] md:min-h-auto" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200');">
-            <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-brandDark/40"></div>
-        </div>
-        <div class="relative flex flex-col justify-center px-6 md:px-16 py-12 md:py-24 bg-brandDark">
-            <div class="max-w-xl space-y-6">
-                <span class="text-brandGold uppercase tracking-widest text-xs font-semibold px-3 py-1 bg-brandGold/10 rounded-full border border-brandGold/20">YOUR SPACE. OUR CARE.</span>
-                <h1 class="text-4xl md:text-6xl font-light tracking-tight text-white leading-tight">Homnivas <br><span class="font-bold text-brandGold">Homes Reimagined</span></h1>
-                <p class="text-lg text-brandTextMuted leading-relaxed">"Your Space. Our Care. Transforming old structures into premium ready-to-move havens."</p>
-                <div class="pt-4">
-                    <a href="#collections" class="inline-flex items-center gap-2 border border-brandGold text-brandGold hover:bg-brandGold hover:text-brandDark px-6 py-3 rounded-full font-medium transition duration-300">Explore Collections <i class="fa-solid fa-arrow-right text-sm"></i></a>
+    <header class="sticky top-0 z-50 w-full glass-nav">
+        <div class="container px-4 flex h-16 items-center justify-between mx-auto">
+            <a href="/" class="flex items-center gap-3">
+                <div class="bg-primary/20 p-1.5 rounded-md shrink-0">
+                    <i data-lucide="home" class="text-primary w-5 h-5"></i>
                 </div>
-            </div>
+                <div class="flex flex-col -space-y-1">
+                    <span class="text-xl font-bold font-headline text-foreground leading-tight">Homnivas</span>
+                    <span class="text-[10px] uppercase tracking-[0.15em] text-primary font-bold whitespace-nowrap">Your Space. Our Care.</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a class="transition-colors text-muted-foreground hover:text-primary" href="#story">Story</a>
+                <a class="transition-colors text-muted-foreground hover:text-primary" href="#process">Process</a>
+                <a class="transition-colors text-muted-foreground hover:text-primary" href="#collections">Collections</a>
+                <a class="transition-colors text-muted-foreground hover:text-primary" href="#philosophy">Philosophy</a>
+                <a class="transition-colors text-muted-foreground hover:text-primary" href="#partner">Partner</a>
+                <a target="_blank" href="https://wa.me/919836196650?text=Hi! I'm interested in Homnivas services." class="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-4 py-2 rounded-md flex items-center transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                    <i data-lucide="message-circle" class="w-4 h-4 mr-2"></i> Inquire
+                </a>
+            </nav>
         </div>
     </header>
 
-    <!-- Value Badges -->
-    <section class="border-y border-white/5 bg-brandCard/30 py-8 px-6 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center max-w-7xl mx-auto my-12 rounded-2xl">
-        <div class="space-y-1">
-            <div class="text-brandGold text-xl"><i class="fa-solid fa-gem"></i></div>
-            <h4 class="font-medium text-white">Bespoke</h4>
-            <p class="text-xs text-brandTextMuted">Crafted Just For You</p>
-        </div>
-        <div class="space-y-1">
-            <div class="text-brandGold text-xl"><i class="fa-solid fa-crown"></i></div>
-            <h4 class="font-medium text-white">Elite</h4>
-            <p class="text-xs text-brandTextMuted">Premium Standards Only</p>
-        </div>
-        <div class="space-y-1">
-            <div class="text-brandGold text-xl"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-            <h4 class="font-medium text-white">Curated</h4>
-            <p class="text-xs text-brandTextMuted">Artisan Picked Elements</p>
-        </div>
-        <div class="space-y-1">
-            <div class="text-brandGold text-xl"><i class="fa-solid fa-certificate"></i></div>
-            <h4 class="font-medium text-white">Flawless</h4>
-            <p class="text-xs text-brandTextMuted">Exceptional Execution</p>
-        </div>
-    </section>
-
-    <!-- The Transformation Story -->
-    <section id="story" class="py-20 px-6 max-w-7xl mx-auto text-center space-y-12">
-        <div class="space-y-3">
-            <h2 class="text-3xl md:text-4xl font-semibold">The Transformation Story</h2>
-            <div class="w-16 h-1 bg-brandGold mx-auto rounded-full"></div>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-brandCard p-8 rounded-2xl border border-white/5 space-y-4 hover:border-brandGold/30 transition">
-                <div class="w-12 h-12 rounded-full bg-brandGold/10 flex items-center justify-center text-brandGold mx-auto text-lg"><i class="fa-solid fa-compass-drafting"></i></div>
-                <h3 class="text-xl font-semibold">Structural Updates</h3>
-                <p class="text-sm text-brandTextMuted leading-relaxed">Reinforcing foundations and layouts to withstand modern needs perfectly.</p>
+    <main class="flex-1">
+        <section class="relative h-[80vh] md:h-[90vh] w-full text-white overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920" alt="Premium Urban Interior" class="w-full h-full object-cover scale-105 animate-pulse-slow opacity-60" />
+                <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
             </div>
-            <div class="bg-brandCard p-8 rounded-2xl border border-white/5 space-y-4 hover:border-brandGold/30 transition">
-                <div class="w-12 h-12 rounded-full bg-brandGold/10 flex items-center justify-center text-brandGold mx-auto text-lg"><i class="fa-solid fa-couch"></i></div>
-                <h3 class="text-xl font-semibold">Aesthetic Rework</h3>
-                <p class="text-sm text-brandTextMuted leading-relaxed">Elevating interiors with high-tier finishes, premium hardware, and bespoke fixtures.</p>
-            </div>
-            <div class="bg-brandCard p-8 rounded-2xl border border-white/5 space-y-4 hover:border-brandGold/30 transition">
-                <div class="w-12 h-12 rounded-full bg-brandGold/10 flex items-center justify-center text-brandGold mx-auto text-lg"><i class="fa-solid fa-house-chimney-medical"></i></div>
-                <h3 class="text-xl font-semibold">Complete Overhaul</h3>
-                <p class="text-sm text-brandTextMuted leading-relaxed">Turning unpolished environments into fully completed, ready-to-live luxurious realities.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Signature Collections -->
-    <section id="collections" class="py-20 bg-brandCard/20 px-6">
-        <div class="max-w-7xl mx-auto space-y-12">
-            <div class="text-center space-y-3">
-                <h2 class="text-3xl md:text-4xl font-semibold">Signature Collections</h2>
-                <div class="w-16 h-1 bg-brandGold mx-auto rounded-full"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-brandCard rounded-3xl overflow-hidden border border-white/5 group hover:border-brandGold/20 transition flex flex-col justify-between">
-                    <div class="h-64 overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800');"></div>
-                    <div class="p-8 space-y-6">
-                        <h3 class="text-2xl font-bold">Urban Signature</h3>
-                        <p class="text-sm text-brandTextMuted">Sophisticated city dwellings blending high functionality with timeless modern minimalism.</p>
-                        <button onclick="document.getElementById('partner').scrollIntoView({behavior: 'smooth'})" class="w-full py-3 bg-brandGold text-brandDark font-semibold rounded-xl hover:bg-yellow-400 transition">Inquire Collection</button>
-                    </div>
+            <div class="relative z-10 container mx-auto px-4 max-w-4xl text-center space-y-8 mt-16">
+                <div class="inline-block px-5 py-2 bg-primary/10 border border-primary/20 backdrop-blur-md rounded-full shadow-lg mb-4">
+                    <p class="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.5em] leading-none">Homes Reimagined</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-brandCard rounded-3xl overflow-hidden border border-white/5 group hover:border-brandGold/20 transition flex flex-col justify-between">
-                    <div class="h-64 overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800');"></div>
-                    <div class="p-8 space-y-6">
-                        <h3 class="text-2xl font-bold">Classic Estate</h3>
-                        <p class="text-sm text-brandTextMuted">Bespoke historical properties completely restored into grand, ultra-premium ready-to-move estates.</p>
-                        <button onclick="document.getElementById('partner').scrollIntoView({behavior: 'smooth'})" class="w-full py-3 bg-brandGold text-brandDark font-semibold rounded-xl hover:bg-yellow-400 transition">Inquire Collection</button>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold font-headline tracking-tighter drop-shadow-2xl text-foreground">Homnivas</h1>
+                <p class="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto italic font-light leading-relaxed px-6">
+                    "Your Space. Our Care. Transforming old structures into premium ready-to-move havens."
+                </p>
+            </div>
+        </section>
+
+        <section class="py-12 bg-background border-b border-border">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="glass-card rounded-2xl p-8 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border/50 text-center">
+                    <div class="flex flex-col items-center px-2">
+                        <div class="mb-4 p-3 bg-primary/10 rounded-xl"><i data-lucide="palette" class="w-6 h-6 text-primary"></i></div>
+                        <p class="text-xl font-bold font-headline text-foreground tracking-tight">Bespoke</p>
+                        <p class="text-[9px] text-muted-foreground uppercase tracking-widest mt-1.5 font-bold">Themed Designs</p>
+                    </div>
+                    <div class="flex flex-col items-center px-2">
+                        <div class="mb-4 p-3 bg-primary/10 rounded-xl"><i data-lucide="shield-check" class="w-6 h-6 text-primary"></i></div>
+                        <p class="text-xl font-bold font-headline text-foreground tracking-tight">100%</p>
+                        <p class="text-[9px] text-muted-foreground uppercase tracking-widest mt-1.5 font-bold">Quality Assurance</p>
+                    </div>
+                    <div class="flex flex-col items-center px-2">
+                        <div class="mb-4 p-3 bg-primary/10 rounded-xl"><i data-lucide="search" class="w-6 h-6 text-primary"></i></div>
+                        <p class="text-xl font-bold font-headline text-foreground tracking-tight">Curated</p>
+                        <p class="text-[9px] text-muted-foreground uppercase tracking-widest mt-1.5 font-bold">Handpicked Homes</p>
+                    </div>
+                    <div class="flex flex-col items-center px-2 border-r-0">
+                        <div class="mb-4 p-3 bg-primary/10 rounded-xl"><i data-lucide="sparkles" class="w-6 h-6 text-primary"></i></div>
+                        <p class="text-xl font-bold font-headline text-foreground tracking-tight">Premium</p>
+                        <p class="text-[9px] text-muted-foreground uppercase tracking-widest mt-1.5 font-bold">Ready-to-Move</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Partner With Homnivas & Form -->
-    <section id="partner" class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 bg-brandCard p-8 md:p-16 rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
-            <div class="space-y-8">
-                <div class="space-y-3">
-                    <h2 class="text-3xl md:text-4xl font-semibold">Partner With Homnivas</h2>
-                    <p class="text-brandTextMuted">Let’s transform your property or find your perfect tailored ready-to-move sanctuary.</p>
+        <section id="story" class="py-24 bg-background">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-headline font-bold mb-6 tracking-tight gradient-text">The Transformation Story</h2>
+                <div class="flex items-center justify-center gap-4 text-primary font-bold uppercase tracking-widest text-[10px] mb-16">
+                    <span>Past</span> <i data-lucide="arrow-right" class="w-4 h-4 opacity-50"></i>
+                    <span>Present</span> <i data-lucide="arrow-right" class="w-4 h-4 opacity-50"></i>
+                    <span>Future</span>
                 </div>
-                <div class="space-y-6">
-                    <div class="flex gap-4 items-start">
-                        <div class="text-brandGold text-lg mt-1"><i class="fa-solid fa-circle-check"></i></div>
-                        <div>
-                            <h4 class="font-medium text-white">Expert Evaluation</h4>
-                            <p class="text-sm text-brandTextMuted">Comprehensive assessments of property potential and architecture.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto relative">
+                    <div class="hidden md:block absolute top-10 left-1/6 right-1/6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent -z-10"></div>
+                    
+                    <div class="flex flex-col items-center group">
+                        <div class="w-20 h-20 rounded-full glass-card flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-all">
+                            <i data-lucide="history" class="w-8 h-8 text-primary group-hover:text-black"></i>
+                        </div>
+                        <h4 class="text-[9px] font-bold uppercase tracking-[0.3em] text-primary mb-2">Neglected Potential</h4>
+                        <h3 class="text-xl font-headline font-bold mb-3">The Old House</h3>
+                        <p class="text-sm text-muted-foreground">We identify undervalued spaces with strong foundations but aging interiors.</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center group">
+                        <div class="w-20 h-20 rounded-full glass-card flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-all">
+                            <i data-lucide="pen-tool" class="w-8 h-8 text-primary group-hover:text-black"></i>
+                        </div>
+                        <h4 class="text-[9px] font-bold uppercase tracking-[0.3em] text-primary mb-2">Studio Transformation</h4>
+                        <h3 class="text-xl font-headline font-bold mb-3">Homnivas Design</h3>
+                        <p class="text-sm text-muted-foreground">Our team applies a signature theme, redesigning every square inch.</p>
+                    </div>
+
+                    <div class="flex flex-col items-center group">
+                        <div class="w-20 h-20 rounded-full glass-card flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-all">
+                            <i data-lucide="sparkles" class="w-8 h-8 text-primary group-hover:text-black"></i>
+                        </div>
+                        <h4 class="text-[9px] font-bold uppercase tracking-[0.3em] text-primary mb-2">Beautiful Living</h4>
+                        <h3 class="text-xl font-headline font-bold mb-3">Premium Home</h3>
+                        <p class="text-sm text-muted-foreground">A ready-to-move sanctuary emerges, curated for contemporary life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="collections" class="py-24 bg-card/20 border-y border-border">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-headline font-bold mb-4 tracking-tight gradient-text">Signature Collections</h2>
+                    <p class="text-[10px] text-muted-foreground uppercase tracking-[0.4em] font-bold">Themed Renovations for Every Lifestyle</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="glass-card rounded-[1.5rem] p-8 flex flex-col group">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-primary/10 rounded-xl"><i data-lucide="building" class="w-6 h-6 text-primary"></i></div>
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-primary/60">Premium Collection</span>
+                        </div>
+                        <h3 class="font-bold font-headline text-2xl mb-3 group-hover:text-primary transition-colors">Urban Signature</h3>
+                        <p class="text-sm text-muted-foreground mb-8">Modern city-style interiors designed for the sophisticated urban dweller. Sleek lines meets functional luxury.</p>
+                        <div class="mt-auto">
+                            <hr class="border-border/50 mb-6" />
+                            <ul class="grid grid-cols-2 gap-4 text-xs text-muted-foreground mb-8">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-primary"></i> Minimalist aesthetics</li>
+                                <li class="flex items-center gap-2"><i data-lucide="cpu" class="w-3.5 h-3.5 text-primary"></i> Smart home integration</li>
+                            </ul>
+                            <a target="_blank" href="https://wa.me/919836196650?text=Hi! I'm interested in the Homnivas Urban Signature collection." class="bg-primary text-black hover:bg-primary/90 w-full py-3 rounded-xl font-bold flex justify-center items-center gap-2 transition-all">
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i> Explore Collection
+                            </a>
                         </div>
                     </div>
-                    <div class="flex gap-4 items-start">
-                        <div class="text-brandGold text-lg mt-1"><i class="fa-solid fa-circle-check"></i></div>
-                        <div>
-                            <h4 class="font-medium text-white">Seamless Delivery</h4>
-                            <p class="text-sm text-brandTextMuted">Handling everything from procurement to finishing keys with zero stress for you.</p>
+
+                    <div class="glass-card rounded-[1.5rem] p-8 flex flex-col group">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-primary/10 rounded-xl"><i data-lucide="leaf" class="w-6 h-6 text-primary"></i></div>
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-primary/60">Organic Living</span>
+                        </div>
+                        <h3 class="font-bold font-headline text-2xl mb-3 group-hover:text-primary transition-colors">Nature Edition</h3>
+                        <p class="text-sm text-muted-foreground mb-8">Nature-inspired living spaces that bring the outdoors in, using sustainable materials and biophilic principles.</p>
+                        <div class="mt-auto">
+                            <hr class="border-border/50 mb-6" />
+                            <ul class="grid grid-cols-2 gap-4 text-xs text-muted-foreground mb-8">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-primary"></i> Sustainable materials</li>
+                                <li class="flex items-center gap-2"><i data-lucide="sun" class="w-3.5 h-3.5 text-primary"></i> Natural light focus</li>
+                            </ul>
+                            <a target="_blank" href="https://wa.me/919836196650?text=Hi! I'm interested in the Homnivas Nature Edition collection." class="bg-primary text-black hover:bg-primary/90 w-full py-3 rounded-xl font-bold flex justify-center items-center gap-2 transition-all">
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i> Explore Collection
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Safe & Interactive Contact Area -->
-            <div class="bg-brandDark/50 p-6 md:p-8 rounded-2xl border border-white/5 space-y-6 flex flex-col justify-center">
-                <h3 class="text-xl font-semibold text-center">Submit Your Inquiry</h3>
-                <!-- Simple client-side direct mailto or messaging interface -->
-                <form onsubmit="alert('Thank you for your interest! We will contact you shortly.'); return false;" class="space-y-4">
-                    <div>
-                        <label class="block text-xs uppercase text-brandTextMuted mb-2 tracking-wider">Your Name</label>
-                        <input type="text" required class="w-full bg-brandDark border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandGold text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase text-brandTextMuted mb-2 tracking-wider">Contact Info</label>
-                        <input type="text" required placeholder="Phone or Email" class="w-full bg-brandDark border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandGold text-sm">
-                    </div>
-                    <button type="submit" class="w-full py-3 bg-brandGold text-brandDark font-bold rounded-xl hover:bg-yellow-400 transition tracking-wide text-sm">Connect With Us</button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer id="about" class="bg-brandDark border-t border-white/5 py-16 px-6 md:px-12 text-center md:text-left">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-12">
-            <div class="space-y-4">
-                <div class="flex items-center justify-center md:justify-start gap-2">
-                    <div class="w-8 h-8 rounded bg-brandGold flex items-center justify-center text-brandDark font-bold text-xl">H</div>
-                    <span class="text-xl font-semibold tracking-wider">Homnivas</span>
+        <section id="testimonials" class="py-24 bg-background">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-headline font-bold mb-4 tracking-tight gradient-text">Transformation Stories</h2>
+                    <p class="text-[10px] text-muted-foreground uppercase tracking-[0.4em] font-bold">Voices of the Reimagined Lifestyle</p>
                 </div>
-                <p class="text-sm text-brandTextMuted max-w-sm">"We breathe life into tired bricks." Turning spaces into premium legacy residences globally.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-8 rounded-2xl relative">
+                        <i data-lucide="quote" class="absolute top-6 right-6 w-8 h-8 text-primary/20 -rotate-12"></i>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">SR</div>
+                            <div>
+                                <p class="font-bold text-sm">Siddharth Roy</p>
+                                <p class="text-[9px] text-primary uppercase">Urban Signature</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground italic">"I visited the property when it was just a skeletal old apartment. Seeing the Homnivas transformation into an Urban Signature masterpiece was breathtaking."</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl relative">
+                        <i data-lucide="quote" class="absolute top-6 right-6 w-8 h-8 text-primary/20 -rotate-12"></i>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">MD</div>
+                            <div>
+                                <p class="font-bold text-sm">Meera Deshmukh</p>
+                                <p class="text-[9px] text-primary uppercase">Nature Edition</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground italic">"We wanted a home that felt connected to nature. Homnivas took an old 1980s bungalow and reimagined it with biophilic design. Incredible."</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl relative">
+                        <i data-lucide="quote" class="absolute top-6 right-6 w-8 h-8 text-primary/20 -rotate-12"></i>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">AK</div>
+                            <div>
+                                <p class="font-bold text-sm">Arjun Khanna</p>
+                                <p class="text-[9px] text-primary uppercase">Luxe Collection</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground italic">"The attention to detail in the Luxe Collection is unmatched. They turned an undervalued asset into a regal experience."</p>
+                    </div>
+                </div>
             </div>
-            <div class="space-y-4">
-                <h4 class="text-brandGold font-semibold tracking-wider uppercase text-xs">Our Mission</h4>
-                <p class="text-sm text-brandTextMuted">Providing absolute excellence through design, construction integrity, and effortless turnkey experiences.</p>
+        </section>
+
+        <section id="partner" class="py-24 bg-card/10 border-t border-border">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl font-headline font-bold mb-6 gradient-text">Partner With Homnivas</h2>
+                        <p class="text-muted-foreground mb-8">Whether you own a property or wish to invest in transformation, there is a place for you in our studio.</p>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="flex gap-4">
+                                <i data-lucide="building" class="w-6 h-6 text-primary mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg">Property Owners</h4>
+                                    <p class="text-sm text-muted-foreground">Maximize your property's market value.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <i data-lucide="coins" class="w-6 h-6 text-primary mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg">Investors</h4>
+                                    <p class="text-sm text-muted-foreground">Invest in high-yield reimagined real estate.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <a href="https://wa.me/919836196650?text=Hi! I'm interested in partnering with Homnivas." target="_blank" class="bg-primary text-black font-bold px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:bg-primary/90 flex items-center gap-2">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i> Discuss Partnership
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-10 rounded-[2rem] text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+                        <i data-lucide="users" class="w-12 h-12 text-primary mx-auto mb-6"></i>
+                        <h3 class="text-2xl font-headline font-bold mb-4">Join the Circle</h3>
+                        <p class="text-sm text-muted-foreground mb-6">Connect with our founders directly to learn more about our upcoming transformation funds.</p>
+                        <div class="p-4 bg-primary/10 border border-primary/20 rounded-xl">
+                            <p class="text-primary font-bold text-xl tracking-tight">+91 98361 96650</p>
+                            <p class="text-[9px] text-muted-foreground uppercase tracking-[0.3em] mt-1 font-bold">Direct Studio Line</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="space-y-4">
-                <h4 class="text-brandGold font-semibold tracking-wider uppercase text-xs">Reach Out</h4>
-                <p class="text-sm text-brandTextMuted"><i class="fa-solid fa-envelope mr-2"></i> contact@homnivas.space</p>
-                <p class="text-sm text-brandTextMuted"><i class="fa-solid fa-phone mr-2"></i> +1 (800) 555-HOME</p>
+        </section>
+    </main>
+
+    <footer class="py-10 border-t border-border bg-background">
+        <div class="container mx-auto px-4 max-w-5xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col text-center md:text-left">
+                <span class="font-headline font-bold text-lg">Homnivas</span>
+                <p class="text-xs text-muted-foreground mt-1">We Breathe Life Into Tired Bricks.</p>
+                <p class="text-xs text-muted-foreground mt-2">© 2026 Homnivas. All Rights Reserved.</p>
             </div>
-        </div>
-        <div class="max-w-7xl mx-auto border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brandTextMuted">
-            <p>&copy; 2026 Homnivas. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="#" class="hover:text-brandGold">Privacy Policy</a>
-                <a href="#" class="hover:text-brandGold">Terms of Service</a>
+            <div class="flex gap-4 text-muted-foreground">
+                <a href="#" class="hover:text-primary transition-colors text-sm">Privacy Policy</a>
+                <a href="#" class="hover:text-primary transition-colors text-sm">Terms & Conditions</a>
             </div>
         </div>
     </footer>
 
+    <a target="_blank" href="https://wa.me/919836196650?text=Hi! I'm interested in Homnivas services." class="fixed bottom-6 right-6 z-50 bg-primary text-black p-4 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.4)] hover:scale-110 transition-transform">
+        <i data-lucide="message-circle" class="w-8 h-8 fill-current"></i>
+    </a>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
