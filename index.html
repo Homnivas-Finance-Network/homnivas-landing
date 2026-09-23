@@ -343,7 +343,6 @@
                 <p class="text-gray-500 text-xs md:text-sm font-medium">Clear answers for complete peace of mind.</p>
             </div>
             <div class="max-w-2xl mx-auto space-y-2.5 px-2">
-                
                 <div class="bg-elite-platinum rounded-lg overflow-hidden cursor-pointer faq-item" onclick="this.classList.toggle('faq-open')">
                     <div class="p-4 md:p-5 flex justify-between items-center font-semibold text-xs md:text-sm text-elite-black">
                         Are there any subsequent hidden charges?
@@ -393,7 +392,6 @@
                         <p class="py-4">If your CIBIL crosses 750+ and you have a verifiable income source (Bank statement/Salary), rejection is highly unlikely. Our internal system only routes your file to banks where your specific profile is a pre-approved match, ensuring maximum success rate.</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -404,8 +402,8 @@
                 <i data-lucide="shield-check" class="w-6 h-6 md:w-8 md:h-8 text-wealth-mint mx-auto mb-4 md:mb-6 opacity-90"></i>
                 
                 <h2 class="relative z-10 font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-tighter mb-3 md:mb-4">Start Your CIBIL Reset.</h2>
-                
                 <p class="relative z-10 text-teal-100 text-xs sm:text-sm md:text-base font-medium mb-8 md:mb-10 max-w-md mx-auto opacity-80 px-4">Proceed to the secure portal. Review the digital mandate and commence your official financial recovery.</p>
+                
                 <a href="https://reset.homnivas.space" class="relative z-10 w-full sm:w-auto inline-block bg-white text-wealth-dark px-8 md:px-10 py-3.5 md:py-4 rounded-lg font-bold transition text-xs sm:text-sm hover:bg-teal-50 tracking-wide shadow-lg shadow-black/20 uppercase">
                     Initiate Protocol (₹16,000)
                 </a>
@@ -471,9 +469,9 @@
             <div class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-wealth-mint animate-pulse flex-shrink-0"></div>
             <div class="flex-1 min-w-0">
                 <p class="text-[10px] md:text-[11px] text-gray-300 font-medium leading-tight">
-                    <span id="toastUser" class="text-white font-bold">Amit from Delhi</span> executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>
+                    <span id="toastUser" class="text-white font-bold"></span> <span id="toastAction"></span>
                 </p>
-                <p id="toastTime" class="text-[8px] md:text-[9px] text-wealth-teal font-bold mt-1 uppercase tracking-wider">Just now</p>
+                <p id="toastTime" class="text-[8px] md:text-[9px] text-wealth-teal font-bold mt-1 uppercase tracking-wider"></p>
             </div>
         </div>
     </div>
@@ -581,15 +579,61 @@
             }
         });
 
-        // --- SOCIAL PROOF LOGIC ---
+        // --- 50 DYNAMIC SOCIAL PROOF DATA POINTS ---
         const socialProofData = [
-          { user: "Rahul K. (UP)", time: "2 MIN AGO" },
-          { user: "Priya S. (Mumbai)", time: "5 MIN AGO" },
-          { user: "Ankit M. (Pune)", time: "12 MIN AGO" },
-          { user: "Suresh V. (Jaipur)", time: "JUST NOW" }
+            { user: "Rahul K. (Delhi)", time: "JUST NOW", action: 'executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>' },
+            { user: "Priya S. (Mumbai)", time: "1 MIN AGO", action: 'secured their <span class="text-wealth-mint font-semibold">₹10k Limit</span>' },
+            { user: "Amit D. (Pune)", time: "3 MINS AGO", action: 'joined the <span class="text-wealth-mint font-semibold">September Cohort</span>' },
+            { user: "Neha J. (Bangalore)", time: "4 MINS AGO", action: 'completed the <span class="text-wealth-mint font-semibold">Digital KYC</span>' },
+            { user: "Vikram R. (Hyderabad)", time: "6 MINS AGO", action: 'initiated the <span class="text-wealth-mint font-semibold">CIBIL Cleanup</span>' },
+            { user: "Sneha P. (Chennai)", time: "8 MINS AGO", action: 'activated their <span class="text-wealth-mint font-semibold">Secure Vault</span>' },
+            { user: "Karthik M. (Kolkata)", time: "11 MINS AGO", action: 'executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>' },
+            { user: "Pooja V. (Jaipur)", time: "14 MINS AGO", action: 'secured their <span class="text-wealth-mint font-semibold">₹10k Limit</span>' },
+            { user: "Arjun N. (Ahmedabad)", time: "18 MINS AGO", action: 'joined the <span class="text-wealth-mint font-semibold">September Cohort</span>' },
+            { user: "Anjali S. (Surat)", time: "21 MINS AGO", action: 'initiated the <span class="text-wealth-mint font-semibold">CIBIL Cleanup</span>' },
+            { user: "Suresh B. (Lucknow)", time: "25 MINS AGO", action: 'completed the <span class="text-wealth-mint font-semibold">Digital KYC</span>' },
+            { user: "Meera T. (Chandigarh)", time: "28 MINS AGO", action: 'activated their <span class="text-wealth-mint font-semibold">Secure Vault</span>' },
+            { user: "Raj K. (Indore)", time: "32 MINS AGO", action: 'executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>' },
+            { user: "Kavita R. (Bhopal)", time: "36 MINS AGO", action: 'secured their <span class="text-wealth-mint font-semibold">₹10k Limit</span>' },
+            { user: "Sanjay M. (Patna)", time: "41 MINS AGO", action: 'joined the <span class="text-wealth-mint font-semibold">September Cohort</span>' },
+            { user: "Roshni D. (Noida)", time: "45 MINS AGO", action: 'initiated the <span class="text-wealth-mint font-semibold">CIBIL Cleanup</span>' },
+            { user: "Gaurav S. (Gurgaon)", time: "48 MINS AGO", action: 'completed the <span class="text-wealth-mint font-semibold">Digital KYC</span>' },
+            { user: "Divya N. (Delhi)", time: "52 MINS AGO", action: 'activated their <span class="text-wealth-mint font-semibold">Secure Vault</span>' },
+            { user: "Manoj P. (Mumbai)", time: "55 MINS AGO", action: 'executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>' },
+            { user: "Riya V. (Pune)", time: "59 MINS AGO", action: 'secured their <span class="text-wealth-mint font-semibold">₹10k Limit</span>' },
+            { user: "Aditya B. (Bangalore)", time: "1 HR AGO", action: 'joined the <span class="text-wealth-mint font-semibold">September Cohort</span>' },
+            { user: "Swati M. (Hyderabad)", time: "1 HR AGO", action: 'initiated the <span class="text-wealth-mint font-semibold">CIBIL Cleanup</span>' },
+            { user: "Nitin K. (Chennai)", time: "1 HR AGO", action: 'completed the <span class="text-wealth-mint font-semibold">Digital KYC</span>' },
+            { user: "Shruti R. (Kolkata)", time: "1 HR AGO", action: 'activated their <span class="text-wealth-mint font-semibold">Secure Vault</span>' },
+            { user: "Deepak S. (Jaipur)", time: "2 HRS AGO", action: 'executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>' },
+            { user: "Aarti D. (Ahmedabad)", time: "2 HRS AGO", action: 'secured their <span class="text-wealth-mint font-semibold">₹10k Limit</span>' },
+            { user: "Ravi N. (Surat)", time: "2 HRS AGO", action: 'joined the <span class="text-wealth-mint font-semibold">September Cohort</span>' },
+            { user: "Shikha P. (Lucknow)", time: "2 HRS AGO", action: 'initiated the <span class="text-wealth-mint font-semibold">CIBIL Cleanup</span>' },
+            { user: "Ajay V. (Chandigarh)", time: "2 HRS AGO", action: 'completed the <span class="text-wealth-mint font-semibold">Digital KYC</span>' },
+            { user: "Tanvi B. (Indore)", time: "3 HRS AGO", action: 'activated their <span class="text-wealth-mint font-semibold">Secure Vault</span>' },
+            { user: "Karan M. (Bhopal)", time: "3 HRS AGO", action: 'executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>' },
+            { user: "Pallavi K. (Patna)", time: "3 HRS AGO", action: 'secured their <span class="text-wealth-mint font-semibold">₹10k Limit</span>' },
+            { user: "Vishal R. (Noida)", time: "3 HRS AGO", action: 'joined the <span class="text-wealth-mint font-semibold">September Cohort</span>' },
+            { user: "Komal S. (Gurgaon)", time: "3 HRS AGO", action: 'initiated the <span class="text-wealth-mint font-semibold">CIBIL Cleanup</span>' },
+            { user: "Sahil D. (Delhi)", time: "4 HRS AGO", action: 'completed the <span class="text-wealth-mint font-semibold">Digital KYC</span>' },
+            { user: "Ananya N. (Mumbai)", time: "4 HRS AGO", action: 'activated their <span class="text-wealth-mint font-semibold">Secure Vault</span>' },
+            { user: "Mohit P. (Pune)", time: "4 HRS AGO", action: 'executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>' },
+            { user: "Radhika V. (Bangalore)", time: "4 HRS AGO", action: 'secured their <span class="text-wealth-mint font-semibold">₹10k Limit</span>' },
+            { user: "Anurag B. (Hyderabad)", time: "4 HRS AGO", action: 'joined the <span class="text-wealth-mint font-semibold">September Cohort</span>' },
+            { user: "Isha M. (Chennai)", time: "4 HRS AGO", action: 'initiated the <span class="text-wealth-mint font-semibold">CIBIL Cleanup</span>' },
+            { user: "Sumit K. (Kolkata)", time: "5 HRS AGO", action: 'completed the <span class="text-wealth-mint font-semibold">Digital KYC</span>' },
+            { user: "Preeti R. (Jaipur)", time: "5 HRS AGO", action: 'activated their <span class="text-wealth-mint font-semibold">Secure Vault</span>' },
+            { user: "Harsh S. (Ahmedabad)", time: "5 HRS AGO", action: 'executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>' },
+            { user: "Sonal D. (Surat)", time: "5 HRS AGO", action: 'secured their <span class="text-wealth-mint font-semibold">₹10k Limit</span>' },
+            { user: "Rajat N. (Lucknow)", time: "5 HRS AGO", action: 'joined the <span class="text-wealth-mint font-semibold">September Cohort</span>' },
+            { user: "Anita P. (Chandigarh)", time: "5 HRS AGO", action: 'initiated the <span class="text-wealth-mint font-semibold">CIBIL Cleanup</span>' },
+            { user: "Tushar V. (Indore)", time: "6 HRS AGO", action: 'completed the <span class="text-wealth-mint font-semibold">Digital KYC</span>' },
+            { user: "Bhumika B. (Bhopal)", time: "6 HRS AGO", action: 'activated their <span class="text-wealth-mint font-semibold">Secure Vault</span>' },
+            { user: "Yash M. (Patna)", time: "6 HRS AGO", action: 'executed the <span class="text-wealth-mint font-semibold">Reset Protocol</span>' },
+            { user: "Geeta K. (Noida)", time: "6 HRS AGO", action: 'secured their <span class="text-wealth-mint font-semibold">₹10k Limit</span>' }
         ];
 
-        let currentIndex = 0;
+        let currentIndex = Math.floor(Math.random() * 5); // Start randomly within the first 5 items
 
         function showNextToast() {
           const toast = document.getElementById('socialProofToast');
@@ -597,6 +641,7 @@
 
           const current = socialProofData[currentIndex];
           document.getElementById('toastUser').innerText = current.user;
+          document.getElementById('toastAction').innerHTML = current.action;
           document.getElementById('toastTime').innerText = current.time;
 
           toast.classList.remove('translate-y-20', 'opacity-0');
@@ -605,14 +650,14 @@
           setTimeout(() => {
             toast.classList.remove('translate-y-0', 'opacity-100');
             toast.classList.add('translate-y-20', 'opacity-0');
-          }, 4000);
+          }, 4500);
 
           currentIndex = (currentIndex + 1) % socialProofData.length;
         }
 
         setTimeout(() => {
           showNextToast();
-          setInterval(showNextToast, 15000); 
+          setInterval(showNextToast, 14000); 
         }, 3000);
     </script>
 </body>
